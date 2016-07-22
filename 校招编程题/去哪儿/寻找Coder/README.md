@@ -1,14 +1,14 @@
-ÌâÄ¿ÃèÊö:
-ÇëÉè¼ÆÒ»¸ö¸ßÐ§Ëã·¨£¬ÔÙ¸ø¶¨µÄ×Ö·û´®Êý×éÖÐ£¬ÕÒµ½°üº¬"Coder"µÄ×Ö·û´®(²»Çø·Ö´óÐ¡Ð´)£¬²¢½«Æä×÷ÎªÒ»¸öÐÂµÄÊý×é·µ»Ø¡£½á¹û×Ö·û´®µÄË³Ðò°´ÕÕ"Coder"³öÏÖµÄ´ÎÊýµÝ¼õÅÅÁÐ£¬ÈôÁ½¸ö´®ÖÐ"Coder"³öÏÖµÄ´ÎÊýÏàÍ¬£¬Ôò±£³ÖËûÃÇÔÚÔ­Êý×éÖÐµÄÎ»ÖÃ¹ØÏµ¡£
-¸ø¶¨Ò»¸ö×Ö·û´®Êý×éAºÍËüµÄ´óÐ¡n£¬Çë·µ»Ø½á¹ûÊý×é¡£±£Ö¤Ô­Êý×é´óÐ¡Ð¡ÓÚµÈÓÚ300,ÆäÖÐÃ¿¸ö´®µÄ³¤¶ÈÐ¡ÓÚµÈÓÚ200¡£Í¬Ê±±£Ö¤Ò»¶¨´æÔÚ°üº¬coderµÄ×Ö·û´®¡£
+é¢˜ç›®æè¿°:
+è¯·è®¾è®¡ä¸€ä¸ªé«˜æ•ˆç®—æ³•ï¼Œå†ç»™å®šçš„å­—ç¬¦ä¸²æ•°ç»„ä¸­ï¼Œæ‰¾åˆ°åŒ…å«"Coder"çš„å­—ç¬¦ä¸²(ä¸åŒºåˆ†å¤§å°å†™)ï¼Œå¹¶å°†å…¶ä½œä¸ºä¸€ä¸ªæ–°çš„æ•°ç»„è¿”å›žã€‚ç»“æžœå­—ç¬¦ä¸²çš„é¡ºåºæŒ‰ç…§"Coder"å‡ºçŽ°çš„æ¬¡æ•°é€’å‡æŽ’åˆ—ï¼Œè‹¥ä¸¤ä¸ªä¸²ä¸­"Coder"å‡ºçŽ°çš„æ¬¡æ•°ç›¸åŒï¼Œåˆ™ä¿æŒä»–ä»¬åœ¨åŽŸæ•°ç»„ä¸­çš„ä½ç½®å…³ç³»ã€‚
+ç»™å®šä¸€ä¸ªå­—ç¬¦ä¸²æ•°ç»„Aå’Œå®ƒçš„å¤§å°nï¼Œè¯·è¿”å›žç»“æžœæ•°ç»„ã€‚ä¿è¯åŽŸæ•°ç»„å¤§å°å°äºŽç­‰äºŽ300,å…¶ä¸­æ¯ä¸ªä¸²çš„é•¿åº¦å°äºŽç­‰äºŽ200ã€‚åŒæ—¶ä¿è¯ä¸€å®šå­˜åœ¨åŒ…å«coderçš„å­—ç¬¦ä¸²ã€‚
 
-²âÊÔÑùÀý:
+æµ‹è¯•æ ·ä¾‹:
 ["i am a coder","Coder Coder","Code"],3
 
-·µ»Ø: ["Coder Coder","i am a coder"]
+è¿”å›ž: ["Coder Coder","i am a coder"]
 
-ÌâÄ¿½âÎö:
-Õâ´ÎÈýµÀÌâÀï±È½ÏÓÐÄÑ¶ÈµÄÒ»µÀÁË£¬Ê¹ÓÃÁËstl¹ØÁªÈÝÆ÷multimap<int, string, greater<int>>£¬ÔÊÐí¼üÖµÖØ¸´£¬ÒÔ"Coder"³öÏÖ´ÎÊýµÝ¼õÅÅÐò£¬ÓÉÓÚ²»Çø·Ö´óÐ¡Ð´£¬ËùÒÔÊ×ÏÈ½«ËùÓÐ×Ö·û±äÎª´óÐ´£¬È»ºóÑ°ÕÒ"CODER"¡£
+é¢˜ç›®è§£æž:
+è¿™æ¬¡ä¸‰é“é¢˜é‡Œæ¯”è¾ƒæœ‰éš¾åº¦çš„ä¸€é“äº†ï¼Œä½¿ç”¨äº†stlå…³è”å®¹å™¨multimap<int, string, greater<int\>>ï¼Œå…è®¸é”®å€¼é‡å¤ï¼Œä»¥"Coder"å‡ºçŽ°æ¬¡æ•°é€’å‡æŽ’åºï¼Œç”±äºŽä¸åŒºåˆ†å¤§å°å†™ï¼Œæ‰€ä»¥é¦–å…ˆå°†æ‰€æœ‰å­—ç¬¦å˜ä¸ºå¤§å†™ï¼Œç„¶åŽå¯»æ‰¾"CODER"ã€‚
 
-ÌâÄ¿µØÖ·:
+é¢˜ç›®åœ°å€:
 http://www.nowcoder.com/practice/a386fd3a5080435dad3252bac76950a7?tpId=49&tqId=29280&rp=1&ru=/ta/2016test&qru=/ta/2016test/question-ranking
