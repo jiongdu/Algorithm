@@ -10,7 +10,7 @@
 using namespace std;
 
 void stringSet(string s){
-    int temp[259]={0};
+    int temp[256]={0};
     for(int i=0;i<s.size();i++){
         temp[s[i]]++;
         if(temp[s[i]]==1){
