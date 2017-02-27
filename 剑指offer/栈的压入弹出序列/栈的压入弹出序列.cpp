@@ -26,7 +26,7 @@ public:
             if(temp>=popV.size()){
                 return false;
             }
-            for(j=temp;j<pushV.size();j++){
+            for(j=temp;j<pushV.size();j++){			//直到相等，不然就一直入栈
                 if(pushV[j]==popV[i]){
                     break;
                 }else{
