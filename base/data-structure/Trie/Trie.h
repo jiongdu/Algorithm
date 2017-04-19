@@ -1,6 +1,12 @@
 #ifndef TRIE_H
 #define TRIE_H
 
+#include <stdlib.h>
+#include <string>
+#include <cstring>
+
+using namespace std;
+
 const int kMaxSize = 26;
 
 class TrieNode{
@@ -13,7 +19,6 @@ public:
     ~TrieNode(){
         for(int i=0;i<kMaxSize;i++){
             delete children_[i];
-            //children[i]=nullptr;
         }
     }
     void increChildrenSize(){
@@ -27,6 +32,12 @@ public:
             return;
         }
         ++terminableSize_;
+    }
+    void decreTerminableSize(){
+        if(terminableSize_<=0){
+            return;
+        }
+        --terminableSize_;
     }
     int getChildrenSize(){
         return childrenSize_;
@@ -59,6 +70,7 @@ public:
         erase(str.c_str());
     }
     bool erase(const char* str);
+    bool downNodeAlone();
 
     int getRedundantSize(TrieNode* trieNode);
     int getNoRedundantSize(TrieNode* trieNode);
@@ -111,28 +123,30 @@ bool Trie::erase(const char* str){
 		TrieNode* current = root_;
 		TrieNode* prev;
 		for(; start!=end;start++){
-			if(downNodeAlone(current)){
+			if(downNodeAlone()){        //
 				delete current;
-				//return true;
+				return true;
 			}
 			prev = current;
 			current = current->children_[*start-'a'];
 		}
-		if(prev->terminableSize_>0){
-			prev->terminableSize_--;
+		if(prev->getTerminableSize()>0){
+			prev->decreTerminableSize();
 		}
 		return true;
 	}
 	return false;
 }
 
-bool Trie::downNodeAlone(TrieNode* current){
+
+bool Trie::downNodeAlone(){
+    TrieNode* current = getHead();
 	int terminableSum = 0;
-	while(current->childrenSize_!=0){
-		terminableSum += current->terminableSize_;
-		if(current->childrenSize_>1){
+	while(current->getChildrenSize()!=0){
+		terminableSum += current->getTerminableSize();
+		if(current->getChildrenSize()>1){
 			return false;
-		}else{
+		}else{              //current->ChildrenSize_ = 1
 			for(int i=0;i<kMaxSize;i++){
 				if(current->children_[i]){
 					current = current->children_[i];
@@ -148,13 +162,13 @@ int Trie::getRedundantSize(TrieNode* trieNode){
     if(trieNode==nullptr) return 0;
     int res = trieNode->getTerminableSize();
     for(int i=0;i<kMaxSize;i++){
-        res += getSize(trieNode->children_[i]);
+        res += getRedundantSize(trieNode->children_[i]);
     }
     return res;
 }
 
-int getNoRedundantSize(TrieNode* trieNode){
-    if(trieNode==nullptr) return0;
+int Trie::getNoRedundantSize(TrieNode* trieNode){
+    if(trieNode==nullptr) return 0;
     int res = 0;
     if(trieNode->getTerminableSize()>0){
         res = 1;
