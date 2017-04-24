@@ -11,7 +11,7 @@
 void RadixSort(vector<int>& nums, int d, int r){
 	int n=nums.size();
 	vector<int> temp(n,0);
-	vector<int> count(r,0);		//r:radix,10?
+	vector<int> count(r,0);		//r:radix,10
 	int radix=1;
 	int i,j,k;
 	for(i=1;i<=d;i++){		//d:ÅÅÐòÂëµÄ¸öÊý
