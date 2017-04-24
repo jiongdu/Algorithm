@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <algorithm>
 
-const int kMaxHeight = 8;
+const int kMaxHeight = 10;
 
 class SkipListNode{
 private:
@@ -12,6 +12,7 @@ private:
 	int value_;
 public:
 	SkipListNode* next_[1];
+	//SkipListNode() : key_(0), value_(0){}
 	SkipListNode(int key=0, int value=0) : key_(key), value_(value){}
 	inline int getKey(){
 		return key_;
@@ -27,8 +28,8 @@ public:
 class SkipList{
 public:
 	SkipList() : maxHeight_(1){
-		head_ = createNode(maxHeight_, 0, 0);
-		for(int i=0;i<maxHeight_; ++i){
+		head_ = createNode(kMaxHeight, 0, 0);       //maxHeight_;
+		for(int i=0;i<kMaxHeight; ++i){             //maxHeight_
 			head_->next_[i] = nullptr;
 		}
 	}
@@ -57,7 +58,7 @@ public:
 			len++;
 			temp=temp->next_[0];
 		}
-		return len;
+		return len-1;
 	}
 	SkipListNode* createNode(int level, int key, int value);
 	bool insert(int key, int value);
@@ -74,11 +75,6 @@ private:
 SkipListNode* SkipList::createNode(int level, int key, int value){
 	char* mem = (char*)malloc(sizeof(SkipListNode)+level*sizeof(SkipListNode*));
 	return new (mem) SkipListNode(key, value);
-	/*
-	SkipListNode* node = new SkipListNode();
-	if(!node) return nullptr;
-	return node;
-	*/
 }
 
 bool SkipList::insert(int key, int value){
@@ -88,15 +84,9 @@ bool SkipList::insert(int key, int value){
 
 	int i = getMaxHeight()-1;
 	for(;i>=0;i--){
-        temp = p->next_[i];
-		//while((temp = p->next_[i]) && (temp->getKey()<key)){
-		while(temp = p->next_[i]){
-            if(temp->getKey()<key){
-                p = temp;
-            }
+		while((temp = p->next_[i]) && (temp->getKey()<key)){
+			p = temp;
 		}
-			//p = temp;
-		//}
 		prev[i]=p;
 	}
 	if(temp && temp->getKey()==key){
@@ -133,7 +123,7 @@ bool SkipList::erase(int key){
 		prev[i]=p;
 	}
 
-	if((!temp) || (temp && temp->getKey()==key)){
+	if((!temp) || (temp && temp->getKey()!=key)){
 		return false;
 	}
 	for(int i=getMaxHeight()-1; i>=0; --i){
