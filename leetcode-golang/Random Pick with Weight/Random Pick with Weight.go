@@ -24,4 +24,3 @@ func (this *Solution) PickIndex() int {
 		}
 	}
 	return right
-}
