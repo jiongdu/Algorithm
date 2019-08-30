@@ -2,6 +2,22 @@ import (
 	"container/heap"
 )
 
+/*
+ * 要实现这些方法的原因是
+ * package heap
+ * type Interface interface {
+	 sort.Interface
+	 Push(x interface{})
+	 Pop() interface{}
+	}
+	而在sort.Interface中
+	type Interface interface {
+		Len() int
+		Less(i, j int) bool
+		Swap(i, j int)
+	}
+ */
+
 type IntHeap []int
 
 func (h IntHeap) Len() int {
