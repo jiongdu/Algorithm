@@ -16,7 +16,7 @@ import (
 		Less(i, j int) bool
 		Swap(i, j int)
 	}
- */
+*/
 
 type IntHeap []int
 
@@ -34,27 +34,26 @@ func (h IntHeap) Less(i, j int) bool {
 }
 
 func (h *IntHeap) Pop() interface{} {
-	old := *h 
+	old := *h
 	n := len(old)
 	x := old[n-1]
-	*h = old[0:n-1]
+	*h = old[0 : n-1]
 	return x
 }
 
 func (h *IntHeap) Push(x interface{}) {
 	*h = append(*h, x.(int))
-} 
-
+}
 
 func findKthLargest(nums []int, k int) int {
-    var intHeap IntHeap = nums
-    h := &intHeap
-    heap.Init(h)
-    for i := 0; i < k; i++ {
-        if i == k - 1 {
-            return heap.Pop(h).(int)
-        }
-        heap.Pop(h)
-    }
-    return -1
+	var intHeap IntHeap = nums
+	h := &intHeap
+	heap.Init(h)
+	for i := 0; i < k; i++ {
+		if i == k-1 {
+			return heap.Pop(h).(int)
+		}
+		heap.Pop(h)
+	}
+	return -1
 }

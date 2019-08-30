@@ -1,21 +1,21 @@
 type LRUCache struct {
-    head *node
-    tail *node
-    store map[int]*node
-    cap int
+	head  *node
+	tail  *node
+	store map[int]*node
+	cap   int
 }
 
 type node struct {
-    prev *node
-    next *node
-    key int
-    val int
+	prev *node
+	next *node
+	key  int
+	val  int
 }
 
 func Constructor(capacity int) LRUCache {
-    return LRUCache{
+	return LRUCache{
 		store: make(map[int]*node),
-		cap: capacity,
+		cap:   capacity,
 	}
 }
 
@@ -50,7 +50,7 @@ func (this *LRUCache) addToChain(n *node) {
 }
 
 func (this *LRUCache) Get(key int) int {
-    if node, ok := this.store[key]; ok {
+	if node, ok := this.store[key]; ok {
 		this.removeFromChain(node)
 		this.addToChain(node)
 		return node.val
@@ -59,13 +59,12 @@ func (this *LRUCache) Get(key int) int {
 	}
 }
 
-
-func (this *LRUCache) Put(key int, value int)  {
+func (this *LRUCache) Put(key int, value int) {
 	n, ok := this.store[key]
 	if !ok {
 		n = &node{
 			key: key,
-    		val: value,
+			val: value,
 		}
 		this.store[key] = n
 	} else {
@@ -81,7 +80,6 @@ func (this *LRUCache) Put(key int, value int)  {
 		}
 	}
 }
-
 
 /**
  * Your LRUCache object will be instantiated and called as such:
