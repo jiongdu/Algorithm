@@ -1,34 +1,37 @@
-/**************************************
-* @author dujiong
-* @date 2016.9.22
-* @version V0.1
-**************************************/
-
 /**
  * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
  */
-class Solution {
-public:
-    ListNode *swapPairs(ListNode *head) {
-        if(head == NULL || head->next == NULL){
-            return head;
-        }
-        ListNode* dummy = new ListNode(0);
-        dummy->next = head;
-        ListNode* p = dummy;
-        while(p->next != NULL && head->next != NULL){
-            p->next = head->next;
-            head->next = p->next->next;
-            p->next->next = head;
-            
-            p = p->next->next;
-            head = head->next;
-        }
-        return dummy->next;
+func reverseKGroup(head *ListNode, k int) *ListNode {
+	if head == nil {
+		return nil
+	}
+	if k <= 1 {
+		return head
+	}
+	nodesLen := 0
+	for p := head; p != nil; p = p.Next {
+		nodesLen++
+	} 
+    dummy := &ListNode{
+        Next:head,
     }
-};
+	dummy.Next = head	
+	pre := dummy
+    tail, next := head, head
+	for; nodesLen >= k; nodesLen-=k {
+		for i := 0; i < k; i++ {
+			temp := next.Next
+			next.Next = pre.Next
+			pre.Next = next
+			next = temp
+			tail.Next = next
+		}
+		pre = tail
+		tail = next
+	}
+	return dummy.Next
+}
