@@ -6,14 +6,14 @@
  *     Right *TreeNode
  * }
  */
- func sortedArrayToBST(nums []int) *TreeNode {
-    if len(nums) == 0 {
+func sortedArrayToBST(nums []int) *TreeNode {
+	if len(nums) == 0 {
 		return nil
 	}
 	if len(nums) == 1 {
 		return &TreeNode{
-			Val: nums[0],
-			Left: nil,
+			Val:   nums[0],
+			Left:  nil,
 			Right: nil,
 		}
 	}

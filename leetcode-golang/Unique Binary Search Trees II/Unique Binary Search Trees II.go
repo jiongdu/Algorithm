@@ -24,8 +24,8 @@ func generator(start, end int) []*TreeNode {
 		for _, left := range leftSubtrees {
 			for _, right := range rightSubtrees {
 				root := &TreeNode{
-					Val : i,
-					Left: left,
+					Val:   i,
+					Left:  left,
 					Right: right,
 				}
 				nodes := append(nodes, root)
