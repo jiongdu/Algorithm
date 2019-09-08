@@ -37,7 +37,7 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 			pre.Next = temp
 		}
 		pre = cur
-		cur = cur.Next
+		cur = cur.Next //这一行其实是没有必要的
 	}
 	return dummy.Next
 }
