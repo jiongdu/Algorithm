@@ -4,7 +4,7 @@ func rotate(nums []int, k int) {
 		return
 	}
 	//先除了之后再算
-    k = k % len(nums)
+	k = k % len(nums)
 	reverse(nums, 0, len(nums)-1)
 	reverse(nums, 0, k-1)
 	reverse(nums, k, len(nums)-1)
@@ -18,17 +18,16 @@ func reverse(nums []int, start, end int) {
 	}
 }
 
-
 // 每次保留最后一个数，将其放到nums[0]的位置上，真正的移动k次
 func rotate(nums []int, k int) {
-    if len(nums) == 0 || k <= 0 {
-        return
-    }
-    for c := 0; c < k; c++ {
-        tmp := nums[len(nums)-1]
-        for i := len(nums) - 2; i >= 0; i-- {
-            nums[i+1] = nums[i]
-        }
-        nums[0] = tmp
-    }
+	if len(nums) == 0 || k <= 0 {
+		return
+	}
+	for c := 0; c < k; c++ {
+		tmp := nums[len(nums)-1]
+		for i := len(nums) - 2; i >= 0; i-- {
+			nums[i+1] = nums[i]
+		}
+		nums[0] = tmp
+	}
 }
