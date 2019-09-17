@@ -6,8 +6,8 @@
  *     Right *TreeNode
  * }
  */
- func levelOrderBottom(root *TreeNode) [][]int {
-    if root == nil {
+func levelOrderBottom(root *TreeNode) [][]int {
+	if root == nil {
 		return [][]int{}
 	}
 	result := [][]int{}
@@ -30,12 +30,12 @@
 		//即在数组的前面插入，不过要注意语法
 		//result = append([][]int{levelSlice}, result...)
 	}
-    reverseLevel(result)
+	reverseLevel(result)
 	return result
 }
 
 func reverseLevel(result [][]int) {
-    for i:=0;i<len(result)/2; i++ {
-        result[i], result[len(result) - i - 1] = result[len(result) - i - 1], result[i]
-    }
+	for i := 0; i < len(result)/2; i++ {
+		result[i], result[len(result)-i-1] = result[len(result)-i-1], result[i]
+	}
 }
