@@ -5,6 +5,9 @@ import "fmt"
 var oneDone = make(chan bool)
 var twoDone = make(chan bool)
 
+//var oneDone = make(chan bool)
+//var twoDone = make(chan bool)
+
 func first() {
 	fmt.Println("one")
 	oneDone <- true

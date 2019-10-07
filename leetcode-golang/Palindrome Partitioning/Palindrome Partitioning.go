@@ -6,17 +6,18 @@ func partition(s string) [][]string {
 }
 
 func dfs(result *[][]string, cur []string, start int, s string) {
-    if start == len(s) {
+	if start == len(s) {
 		*result = append(*result, append([]string{}, cur...))
 		return
 	}
 	for i := start; i < len(s); i++ {
 		//先判断切出来的子串是不是回文串
-		subStr := s[start:i+1]
+		subStr := s[start : i+1]
 		//如果是，再递归
 		if isPal(subStr) {
 			cur = append(cur, subStr)
 			dfs(result, cur, i+1, s)
+			//去掉刚才新家的subStr，回溯
 			cur = cur[:len(cur)-1]
 		}
 	}
