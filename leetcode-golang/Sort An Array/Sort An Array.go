@@ -84,6 +84,7 @@ func sortArray(nums []int) []int {
 }
 
 func quickSortArray(nums []int, left, right int) {
+	//因为j分割之后，需要对前后两半来做递归，所以需要由终止条件，很重要
 	if left >= right {
 		return
 	}
@@ -128,11 +129,11 @@ func adjustHeap(nums []int, start, length int) {
 		if child+1 < length && nums[child] < nums[child+1] {
 			child++
 		}
-		if current < nums[child] {
+		if current < nums[child] { //怎么比都没比较，就在交换
 			nums[start] = nums[child]
 			start = child
 			child = start*2 + 1
-		} else {
+		} else { //要结束
 			break
 		}
 	}

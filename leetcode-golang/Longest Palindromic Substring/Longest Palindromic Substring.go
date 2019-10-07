@@ -7,6 +7,11 @@ func longestPalindrome(s string) string {
 	for i := 0; i < length; i++ {
 		dp[i] = make([]int, length)
 	}
+	// 这里初始化的话，后面就不需要dp[i][i] = 1这样
+	// for i := 0; i < length; i++ {
+	// 	dp[i][i] = 1
+	// }
+
 	left, l := 0, 1
 
 	//必然要经过O(N2)的复杂度
