@@ -16,6 +16,7 @@ func findDuplicate(nums []int) int {
 	}
 	return left
 }
+
 // func findDuplicate(nums []int) int {
 // 	sort.Ints(nums)
 // 	for i := 1; i < len(nums); i++ {

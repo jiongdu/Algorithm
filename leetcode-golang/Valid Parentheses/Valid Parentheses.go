@@ -8,7 +8,7 @@ func isValid(s string) bool {
 		case '(', '[', '{':
 			str.push(b)
 		case ')', ']', '}':
-			//要和拿出来的最近的那个匹配
+			//要和拿出来的最近的那个匹配，可以这样用 r != matching[b],不用担心不在，就是不相等
 			if r, ok := str.pop(); !ok || r != matching[b] {
 				return false
 			}

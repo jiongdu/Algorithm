@@ -25,14 +25,16 @@ Node* copyRandomList(Node* head) {
     std::unordered_map<Node*, Node*> m;
     Node* cur = head;
     while(cur != nullptr) {
-        m[cur] = newNode(cur);
+        m[cur] = newNode(cur);          //m[src, copy]
         cur = cur->next;
     }
     cur = head;
     while(cur != nullptr) {
         Node* clone = m[cur];
-        clone->next = m[cur->next];
+        clone->next = m[cur->next];     //和原来对应的映射关系
         clone->random = m[cur->random];
         cur = cur->next;
     }
     return m[head];
+}
+

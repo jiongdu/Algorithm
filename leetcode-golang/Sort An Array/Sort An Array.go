@@ -84,6 +84,7 @@ func sortArray(nums []int) []int {
 }
 
 func quickSortArray(nums []int, left, right int) {
+	//因为j分割之后，需要对前后两半来做递归，所以需要由终止条件，很重要
 	if left >= right {
 		return
 	}
@@ -110,8 +111,31 @@ func partition(nums []int, left, right int) int {
 
 //堆排序
 func sortArray(nums []int) []int {
-	n := len(nums)
-	for i := n/2 - 1; i >= 0; i-- {
-		down(h, i, n)
+	length := len(nums)
+	for i := length/2 - 1; i >= 0; i-- {
+		adjustHeap(nums, i, length)
 	}
+	for i := length - 1; i >= 0; i-- {
+		nums[0], nums[i] = nums[i], nums[0]
+		adjustHeap(nums, 0, i)
+	}
+	return nums
+}
+
+func adjustHeap(nums []int, start, length int) {
+	current := nums[start]
+	child := 2*start + 1
+	for child < length {
+		if child+1 < length && nums[child] < nums[child+1] {
+			child++
+		}
+		if current < nums[child] { //怎么比都没比较，就在交换
+			nums[start] = nums[child]
+			start = child
+			child = start*2 + 1
+		} else { //要结束
+			break
+		}
+	}
+	nums[start] = current
 }

@@ -139,3 +139,34 @@ func helper(grid [][]byte, i, j int, visited [][]int) {
 	helper(grid, i-1, j, visited)
 	helper(grid, i+1, j, visited)
 }
+
+//自己写的可以ac版本
+//假设可以修改原数组
+func numIslands(grid [][]byte) int {
+	count := 0
+	if len(grid) == 0 {
+		return count
+	}
+	row, col := len(grid), len(grid[0])
+	for i := 0; i < row; i++ {
+		for j := 0; j < col; j++ {
+			if helper(grid, i, j) == true {
+				count++
+			}
+		}
+	}
+	return count
+}
+
+func helper(grid [][]byte, i, j int) bool {
+	row, col := len(grid), len(grid[0])
+	if i < 0 || j < 0 || i >= row || j >= col || grid[i][j] != '1' {
+		return false
+	}
+	grid[i][j] = '#'
+	helper(grid, i+1, j)
+	helper(grid, i-1, j)
+	helper(grid, i, j-1)
+	helper(grid, i, j+1)
+	return true
+}
