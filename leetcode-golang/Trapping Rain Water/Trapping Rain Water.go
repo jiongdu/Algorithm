@@ -5,7 +5,7 @@ func trap(height []int) int {
 	left, right := 0, len(height)-1
 	res := 0
 	for left < right {
-		//找到当前两边波峰之中小的
+		//找到当前两边波峰之中小的，可以避免另一边有更小的，要来作为base
 		currentMax := min(height[left], height[right])
 		if currentMax == height[left] {
 			left++
