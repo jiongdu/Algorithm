@@ -163,7 +163,7 @@ func permuteHelp(nums []int, start, res *[][]int) {
 
 	for i := start; i < len(nums); i++ {
 		nums[i], nums[start] = nums[start], nums[i]
-		permute(nums, start+1, res)
+		permuteHelp(nums, start+1, res)
 		nums[i], nums[start] = nums[start], nums[i]
 	}
 }
